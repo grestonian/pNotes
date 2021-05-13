@@ -1,0 +1,2 @@
+rootProject.name = "pNotes"
+include ':app'
