@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PNotesnfs">
-        <activity android:name=".ActivityAddNote"
+        <activity android:name=".ActivityNoteDetail"
             android:theme="@style/Theme.PNotes"></activity>
+        <activity
+            android:name=".ActivityAddNote"
+            android:theme="@style/Theme.PNotes" />
         <activity
             android:name=".ActivitySplash"
             android:theme="@style/Theme.PNotes">
@@ -23,7 +26,7 @@
         <activity android:name=".ActivityDashboard" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.PNotes"></activity>
+            android:theme="@style/Theme.PNotes" />
     </application>
 
 </manifest>

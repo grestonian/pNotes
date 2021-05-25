@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,11 +17,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class ActivityAddNote extends AppCompatActivity {
+    private static final String TAG = ActivityNoteDetail.class.getSimpleName();
     FirebaseFirestore firestore;
     EditText etNoteTitle, etNoteContent;
     @Override
@@ -34,8 +38,10 @@ public class ActivityAddNote extends AppCompatActivity {
         etNoteContent = findViewById(R.id.et_note_content);
 
         findViewById(R.id.fab_save_note).setOnClickListener(v -> {
-            String noteTitle = etNoteTitle.getText().toString();
-            String noteContent = etNoteContent.getText().toString();
+            String noteTitle = etNoteTitle.getText().toString().trim();
+            String noteContent = etNoteContent.getText().toString().trim();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
+            String currentDateandTime = sdf.format(new Date());
 
             if(noteTitle.isEmpty() || noteContent.isEmpty()) {
                 Toast.makeText(this, "Empty Fields", Toast.LENGTH_SHORT).show();
@@ -47,6 +53,7 @@ public class ActivityAddNote extends AppCompatActivity {
             Map<String, Object> note = new HashMap<>();
             note.put("title", noteTitle);
             note.put("content", noteContent);
+            note.put("date", currentDateandTime);
 
             documentReference.set(note).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
@@ -58,6 +65,7 @@ public class ActivityAddNote extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull @NotNull Exception e) {
                     Toast.makeText(ActivityAddNote.this, "Note add failed   ", Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "Update Failed");
                 }
             });
         });

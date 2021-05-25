@@ -5,7 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="30dp"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="60sp"
+        android:textStyle="italic|bold"
+        android:textColor="@color/design_default_color_primary_dark"
+        android:fontFamily="casual"
+        android:gravity="center"/>
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
@@ -13,9 +28,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.794"
+        android:foregroundTint="@color/design_default_color_primary_dark"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

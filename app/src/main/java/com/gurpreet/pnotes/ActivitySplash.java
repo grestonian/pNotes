@@ -20,14 +20,14 @@ public class ActivitySplash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        findViewById(R.id.temp).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        findViewById(R.id.temp).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
 
 
     }
@@ -41,6 +41,11 @@ public class ActivitySplash extends AppCompatActivity {
             Log.d(TAG, currentUser.getDisplayName());
             startActivity(new Intent(getApplicationContext(), ActivityDashboard.class));
             Toast.makeText(this, "Signing in", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        else {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//            Toast.makeText(this, "Signing in", Toast.LENGTH_SHORT).show();
             finish();
         }
     }

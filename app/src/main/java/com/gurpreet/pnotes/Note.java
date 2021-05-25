@@ -3,13 +3,15 @@ package com.gurpreet.pnotes;
 public class Note {
     private String title;
     private String content;
+    private String date;
 
     public Note() {
     }
 
-    public Note(String title, String content) {
+    public Note(String title, String content, String date) {
         this.title = title;
         this.content = content;
+        this.date = date;
     }
 
     public String getTitle() {
@@ -27,4 +29,13 @@ public class Note {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 }
